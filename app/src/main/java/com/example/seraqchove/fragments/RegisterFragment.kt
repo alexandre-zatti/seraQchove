@@ -1,8 +1,10 @@
 package com.example.seraqchove.fragments
 
+import android.database.sqlite.SQLiteException
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Base64
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -46,13 +48,18 @@ class RegisterFragment : Fragment() {
     private fun createUser() {
         val username = register_username.text.toString()
         val password = register_passw.text.toString()
-        val repeat_password = register_passw_repeat.text.toString()
+        val repeatPassword = register_passw_repeat.text.toString()
 
-        if(validatePassword(password,repeat_password) && validateInput(username,password,repeat_password)){
-            val passwordHash = encrypt(password)
-            val user = User(0,username,passwordHash)
-            instanceUserViewModel.createUser(user)
-            Toast.makeText(requireContext(), "Usuario criado com sucesso!", Toast.LENGTH_LONG).show()
+        if(validatePassword(password,repeatPassword) && validateInput(username,password,repeatPassword)){
+            try{
+                val passwordHash = encrypt(password)
+                val user = User(0,username,passwordHash)
+                instanceUserViewModel.createUser(user)
+                Toast.makeText(requireContext(), "Usuario criado com sucesso!", Toast.LENGTH_LONG).show()
+            }catch (e: SQLiteException){
+                e.printStackTrace()
+            }
+
         }else{
             Toast.makeText(requireContext(), "Preencha todos os campos corretamente!", Toast.LENGTH_LONG).show()
         }
@@ -65,8 +72,8 @@ class RegisterFragment : Fragment() {
         return false
     }
 
-    private fun validateInput(username: String, password: String, repeat_password: String): Boolean{
-        if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeat_password)){
+    private fun validateInput(username: String, password: String, repeatPassword: String): Boolean{
+        if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeatPassword)){
             return true
         }
         return false
