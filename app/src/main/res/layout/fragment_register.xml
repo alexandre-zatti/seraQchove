@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.RegisterFragment">
+
+    <EditText
+        android:id="@+id/register_username"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:hint="Insira um usuario..." />
+
+    <EditText
+        android:id="@+id/register_passw"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/register_username"
+        android:layout_centerInParent="true"
+        android:hint="Insira uma senha..." />
+
+    <EditText
+        android:id="@+id/register_passw_repeat"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/register_passw"
+        android:layout_centerInParent="true"
+        android:hint="Repita a senha..." />
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/register_passw_repeat"
+        android:layout_centerHorizontal="true"
+        android:hint="Registrar" />
+
+</RelativeLayout>
