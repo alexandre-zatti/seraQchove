@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.seraqchove.R
 import com.example.seraqchove.data.entities.User
 import com.example.seraqchove.data.viewModels.UserViewModel
@@ -56,6 +57,7 @@ class RegisterFragment : Fragment() {
                 val user = User(0,username,passwordHash)
                 instanceUserViewModel.createUser(user)
                 Toast.makeText(requireContext(), "Usuario criado com sucesso!", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
             }catch (e: SQLiteException){
                 e.printStackTrace()
             }
