@@ -1,16 +1,22 @@
 package com.example.seraqchove.data
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.seraqchove.data.data.interfaces.UserDao
+import com.example.seraqchove.data.entities.Location
+import com.example.seraqchove.data.interfaces.UserDao
 import com.example.seraqchove.data.entities.User
+import com.example.seraqchove.data.interfaces.LocationDao
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Location::class],
+    version = 1,
+    exportSchema = false)
 abstract class AppDatabase : RoomDatabase(){
 
     abstract fun userDao() : UserDao
+    abstract fun locationDao() : LocationDao
 
     companion object {
         @Volatile

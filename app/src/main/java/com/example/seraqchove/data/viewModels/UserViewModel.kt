@@ -23,9 +23,19 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         return repository.getUserByUsername(username)
     }
 
+    fun getLoggedUser(): LiveData<List<User>> {
+        return repository.getLoggedUser()
+    }
+
     fun createUser(user: User){
         viewModelScope.launch(Dispatchers.IO){
             repository.createUser(user)
+        }
+    }
+
+    fun updateUserLoggedStatus(userId: Int, status: Boolean){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateUserLoggedStatus(userId,status)
         }
     }
 }

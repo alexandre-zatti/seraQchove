@@ -26,8 +26,8 @@ import javax.crypto.spec.SecretKeySpec
 class RegisterFragment : Fragment() {
 
     private val secretKey = "tK5UTui+DPh8lIlBxya5XVsmeDCoUl6vHhdIESMB6sQ="
-    private val salt = "QWlGNHNhMTJTQWZ2bGhpV3U=" // base64 decode => AiF4sa12SAfvlhiWu
-    private val iv = "bVQzNFNhRkQ1Njc4UUFaWA==" // base64 decode => mT34SaFD5678QAZX
+    private val salt = "QWlGNHNhMTJTQWZ2bGhpV3U="
+    private val iv = "bVQzNFNhRkQ1Njc4UUFaWA=="
 
     private lateinit var instanceUserViewModel: UserViewModel
 
@@ -35,7 +35,7 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_register, container, false)
+        val view = inflater.inflate(R.layout.fragment_register, container, false)
 
         instanceUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
@@ -54,7 +54,7 @@ class RegisterFragment : Fragment() {
         if(validatePassword(password,repeatPassword) && validateInput(username,password,repeatPassword)){
             try{
                 val passwordHash = encrypt(password)
-                val user = User(0,username,passwordHash)
+                val user = User(0,username,passwordHash,false)
                 instanceUserViewModel.createUser(user)
                 Toast.makeText(requireContext(), "Usuario criado com sucesso!", Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
@@ -67,8 +67,8 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun validatePassword(password: String, repeat_password: String): Boolean{
-        if(password == repeat_password){
+    private fun validatePassword(password: String, repeatPassword: String): Boolean{
+        if(password == repeatPassword){
             return true
         }
         return false

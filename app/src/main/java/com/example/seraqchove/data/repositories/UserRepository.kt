@@ -1,7 +1,7 @@
 package com.example.seraqchove.data.repositories
 
 import androidx.lifecycle.LiveData
-import com.example.seraqchove.data.data.interfaces.UserDao
+import com.example.seraqchove.data.interfaces.UserDao
 import com.example.seraqchove.data.entities.User
 
 class UserRepository(private val userDao: UserDao) {
@@ -12,5 +12,13 @@ class UserRepository(private val userDao: UserDao) {
 
     fun getUserByUsername(username: String): LiveData<List<User>> {
         return userDao.getUserByUsername(username)
+    }
+
+    fun getLoggedUser(): LiveData<List<User>>{
+        return userDao.getLoggedUser()
+    }
+
+    fun updateUserLoggedStatus(userId: Int, status: Boolean){
+        return userDao.updateUserLoggedStatus(userId, status)
     }
 }
