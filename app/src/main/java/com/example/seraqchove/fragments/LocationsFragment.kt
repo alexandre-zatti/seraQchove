@@ -48,7 +48,8 @@ class LocationsFragment : Fragment() {
         }
 
         view.add_location_btn.setOnClickListener {
-            findNavController().navigate(R.id.action_locationsFragment_to_createLocationFragment)
+            val action = LocationsFragmentDirections.actionLocationsFragmentToCreateLocationFragment(args.currentUser)
+            findNavController().navigate(action)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,callback)
