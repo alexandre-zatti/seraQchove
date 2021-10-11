@@ -14,4 +14,6 @@ class LocationRepository(private val locationDao: LocationDao) {
         return locationDao.getLocationByUser(userId)
     }
 
+
+
 }

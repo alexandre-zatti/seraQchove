@@ -37,5 +37,16 @@
         <action
             android:id="@+id/action_locationsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_locationsFragment_to_createLocationFragment"
+            app:destination="@id/createLocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createLocationFragment"
+        android:name="com.example.seraqchove.fragments.CreateLocationFragment"
+        android:label="Adicionar Local">
+        <action
+            android:id="@+id/action_createLocationFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
     </fragment>
 </navigation>

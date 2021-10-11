@@ -4,7 +4,6 @@ import android.database.sqlite.SQLiteException
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Base64
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.seraqchove.R
-import com.example.seraqchove.data.entities.User
 import com.example.seraqchove.data.viewModels.UserViewModel
+import com.example.seraqchove.utils.Constants
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
-import kotlinx.coroutines.runBlocking
 import javax.crypto.Cipher
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.IvParameterSpec
@@ -28,11 +25,6 @@ import javax.crypto.spec.PBEKeySpec
 import javax.crypto.spec.SecretKeySpec
 
 class LoginFragment : Fragment() {
-
-    private val secretKey = "tK5UTui+DPh8lIlBxya5XVsmeDCoUl6vHhdIESMB6sQ="
-    private val salt = "QWlGNHNhMTJTQWZ2bGhpV3U="
-    private val iv = "bVQzNFNhRkQ1Njc4UUFaWA=="
-
     private lateinit var instanceUserViewModel: UserViewModel
 
     override fun onCreateView(
@@ -111,10 +103,10 @@ class LoginFragment : Fragment() {
 
     private fun decrypt(strToDecrypt : String) : String {
 
-        val ivParameterSpec =  IvParameterSpec(Base64.decode(iv, Base64.DEFAULT))
+        val ivParameterSpec =  IvParameterSpec(Base64.decode(Constants.IV, Base64.DEFAULT))
 
         val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1")
-        val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.decode(salt, Base64.DEFAULT), 10000, 256)
+        val spec =  PBEKeySpec(Constants.SECRET_KEY.toCharArray(), Base64.decode(Constants.SALT, Base64.DEFAULT), 10000, 256)
         val tmp = factory.generateSecret(spec);
         val secretKey =  SecretKeySpec(tmp.encoded, "AES")
 

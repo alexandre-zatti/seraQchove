@@ -47,10 +47,13 @@ class LocationsFragment : Fragment() {
             }
         }
 
+        view.add_location_btn.setOnClickListener {
+            findNavController().navigate(R.id.action_locationsFragment_to_createLocationFragment)
+        }
+
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,callback)
 
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-
         setHasOptionsMenu(true)
 
         return view
