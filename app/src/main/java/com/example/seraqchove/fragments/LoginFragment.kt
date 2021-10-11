@@ -16,9 +16,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.seraqchove.R
+import com.example.seraqchove.data.entities.User
 import com.example.seraqchove.data.viewModels.UserViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
+import kotlinx.coroutines.runBlocking
 import javax.crypto.Cipher
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.IvParameterSpec
@@ -32,12 +34,6 @@ class LoginFragment : Fragment() {
     private val iv = "bVQzNFNhRkQ1Njc4UUFaWA=="
 
     private lateinit var instanceUserViewModel: UserViewModel
-
-    private val args by navArgs<LoginFragmentArgs>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,6 +65,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+
     }
 
     private fun logIn() {

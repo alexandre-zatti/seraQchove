@@ -25,5 +25,5 @@ interface UserDao {
 
     @Query("UPDATE user SET loggedIn = :status WHERE id = :userId")
     @Throws(SQLiteException::class)
-    fun updateUserLoggedStatus(userId: Int, status: Boolean)
+    suspend fun updateUserLoggedStatus(userId: Int, status: Boolean)
 }

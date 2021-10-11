@@ -16,10 +16,6 @@
         <action
             android:id="@+id/action_loginFragment_to_locationsFragment"
             app:destination="@id/locationsFragment" />
-        <argument
-            android:name="logout"
-            app:argType="boolean"
-            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

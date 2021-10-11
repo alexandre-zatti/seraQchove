@@ -3,11 +3,8 @@ package com.example.seraqchove.fragments
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -18,10 +15,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.seraqchove.R
 import com.example.seraqchove.adapters.LocationsAdapter
-import com.example.seraqchove.data.entities.User
 import com.example.seraqchove.data.viewModels.LocationViewModel
 import com.example.seraqchove.data.viewModels.UserViewModel
 import kotlinx.android.synthetic.main.fragment_locations.view.*
+import kotlinx.coroutines.runBlocking
 
 class LocationsFragment : Fragment() {
 
@@ -54,7 +51,20 @@ class LocationsFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
+        setHasOptionsMenu(true)
+
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.logout_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.logout_menu){
+            handleLogout()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun handleLogout() {

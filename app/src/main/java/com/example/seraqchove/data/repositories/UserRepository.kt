@@ -18,7 +18,7 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getLoggedUser()
     }
 
-    fun updateUserLoggedStatus(userId: Int, status: Boolean){
+    suspend fun updateUserLoggedStatus(userId: Int, status: Boolean){
         return userDao.updateUserLoggedStatus(userId, status)
     }
 }
