@@ -1,4 +1,4 @@
-package com.example.seraqchove.data.interfaces.api
+package com.example.seraqchove.data.interfaces.api.countriesnow
 
 import retrofit2.Retrofit
 import com.example.seraqchove.utils.Constants

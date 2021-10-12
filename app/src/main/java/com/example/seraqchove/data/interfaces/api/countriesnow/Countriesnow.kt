@@ -1,4 +1,4 @@
-package com.example.seraqchove.data.interfaces.api
+package com.example.seraqchove.data.interfaces.api.countriesnow
 
 import com.example.seraqchove.data.entities.api.countriesnow.Countries
 import retrofit2.http.GET

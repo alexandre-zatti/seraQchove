@@ -5,19 +5,42 @@
     android:id="@+id/location_row">
 
     <TextView
+        android:id="@+id/temperatura"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:text="teste"/>
+
+    <ImageView
+        android:id="@+id/icon_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/temperatura"
+        android:layout_toLeftOf="@id/status"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
         android:id="@+id/cidade"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        />
-    <TextView
-        android:id="@+id/temperatura"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/cidade"/>
+        android:layout_height="26.6dp"
+        android:layout_toRightOf="@+id/temperatura"
+        android:text="teste"/>
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/temperatura"/>
+        android:layout_height="26dp"
+        android:layout_below="@id/cidade"
+        android:layout_toRightOf="@+id/temperatura"
+        android:text="teste" />
+
+    <TextView
+        android:id="@+id/data_hora"
+        android:layout_width="match_parent"
+        android:layout_height="26.6dp"
+        android:layout_below="@id/status"
+        android:layout_toRightOf="@+id/temperatura"
+        android:text="teste" />
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.seraqchove.R
 import com.example.seraqchove.adapters.LocationsAdapter
+import com.example.seraqchove.data.entities.api.weather.Weather
 import com.example.seraqchove.data.viewModels.LocationViewModel
 import com.example.seraqchove.data.viewModels.UserViewModel
 import kotlinx.android.synthetic.main.fragment_locations.view.*
@@ -37,8 +38,12 @@ class LocationsFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         instanceLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
-        instanceLocationViewModel.getLocationByUser(args.currentUser.id).observe(viewLifecycleOwner, Observer { location ->
-            adapter.setData(location)
+        instanceLocationViewModel.getLocationByUser(args.currentUser.id).observe(viewLifecycleOwner, Observer { locations ->
+            instanceLocationViewModel.getWeather(locations)
+            instanceLocationViewModel.weatherResponse.observe(viewLifecycleOwner, Observer { weathers ->
+                Log.d("teste", weathers.toString())
+                adapter.setData(weathers)
+            })
         })
 
         val callback = object: OnBackPressedCallback(true){
