@@ -3,43 +3,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".fragments.LoginFragment">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logo"
+        />
+
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/text_appTitle"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-30dp"
+        android:text="@string/app_name"
+
+        android:textSize="40sp"
+        android:fontFamily="@font/montserrat_bold"
+
+        />
+
+    <View
+        style="@style/FormContainer"
+        android:id="@+id/formContainer"
+        android:layout_below="@id/text_appTitle"
+        />
+
+    <!-- USUÁRIO -->
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/text_label_usuario"
+        android:layout_alignStart="@id/formContainer"
+        android:layout_alignTop="@id/formContainer"
+        android:layout_marginStart="13dp"
+        android:paddingBottom="4dp"
+        android:text="@string/usuario"
+
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        />
+
     <EditText
+        style="@style/EditText"
         android:id="@+id/login_username"
-       android:layout_width="350dp"
-       android:layout_height="50dp"
-       android:layout_centerVertical="true"
-       android:layout_centerHorizontal="true"
-       android:hint="Usuario"
-       />
+        android:hint="@string/user_hint"
+        android:layout_below="@id/text_label_usuario"
+        />
+
+    <!-- SENHA -->
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/text_label_senha"
+        android:layout_alignStart="@id/formContainer"
+        android:layout_below="@+id/login_username"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="13dp"
+        android:paddingBottom="4dp"
+        android:text="@string/senha"
+
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        />
 
     <EditText
+        style="@style/EditText"
         android:id="@+id/passw_username"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:hint="Senha"
-        android:layout_below="@id/login_username"
+        android:hint="@string/passw_hint"
+        android:layout_below="@id/text_label_senha"
+        android:drawableRight="@drawable/ic_eye"
+        android:inputType="textPassword"
         />
 
-    <Button
+    <!-- BUTTON -->
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/Button"
         android:id="@+id/login_btn"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/passw_username"
-        android:hint="Login"
+        android:layout_below="@+id/passw_username"
+        android:layout_marginTop="30dp"
+        android:text="@string/entrar"
         />
 
-    <Button
-        android:id="@+id/register_btn"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
+    <!-- Cadastro -->
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/nao_cadastrado"
+        android:layout_below="@id/formContainer"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/login_btn"
-        android:hint="Registrar"
+
+        android:text="@string/nao_cadastrado"
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat_medium"
+        />
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/register_btn"
+        android:layout_below="@id/nao_cadastrado"
+        android:layout_centerHorizontal="true"
+
+        android:text="@string/cadastrese"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserrat_bold"
+        />
+
+    <ImageView
+        android:id="@+id/brand"
+        android:src="@drawable/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
         />
 
 </RelativeLayout>
