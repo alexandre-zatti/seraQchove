@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_locationsFragment_to_createLocationFragment"
             app:destination="@id/createLocationFragment" />
+        <action
+            android:id="@+id/action_locationsFragment_to_editLocationFragment"
+            app:destination="@id/editLocationFragment" />
     </fragment>
     <fragment
         android:id="@+id/createLocationFragment"
@@ -48,6 +51,22 @@
         <action
             android:id="@+id/action_createLocationFragment_to_locationsFragment"
             app:destination="@id/locationsFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.seraqchove.data.entities.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/editLocationFragment"
+        android:name="com.example.seraqchove.fragments.EditLocationFragment"
+        android:label="Editar Local"
+        tools:layout="@layout/fragment_edit_location">
+        <action
+            android:id="@+id/action_editLocationFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+        <argument
+            android:name="currentLocation"
+            android:defaultValue='""'
+            app:argType="string" />
         <argument
             android:name="currentUser"
             app:argType="com.example.seraqchove.data.entities.User" />

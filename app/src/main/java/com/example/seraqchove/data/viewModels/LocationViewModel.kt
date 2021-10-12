@@ -44,6 +44,18 @@ class LocationViewModel (application: Application): AndroidViewModel(application
         }
     }
 
+    fun updateLocation(userId: Int, previous_city: String, new_city: String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateLocation(userId,previous_city,new_city)
+        }
+    }
+
+    fun deleteLocation(userId: Int, city: String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteLocation(userId,city)
+        }
+    }
+
     fun getCountries(){
         viewModelScope.launch {
             val response  = countrieSnowRepository.getCountries()

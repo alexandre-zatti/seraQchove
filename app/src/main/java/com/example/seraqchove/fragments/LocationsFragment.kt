@@ -33,6 +33,7 @@ class LocationsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_locations, container, false)
         val recyclerView = view.location_list
         val adapter = LocationsAdapter()
+        adapter.currentUser = args.currentUser
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -41,7 +42,6 @@ class LocationsFragment : Fragment() {
         instanceLocationViewModel.getLocationByUser(args.currentUser.id).observe(viewLifecycleOwner, Observer { locations ->
             instanceLocationViewModel.getWeather(locations)
             instanceLocationViewModel.weatherResponse.observe(viewLifecycleOwner, Observer { weathers ->
-                Log.d("teste", weathers.toString())
                 adapter.setData(weathers)
             })
         })

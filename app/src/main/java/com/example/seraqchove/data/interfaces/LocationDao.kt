@@ -14,6 +14,14 @@ interface LocationDao {
     @Throws(SQLiteException::class)
     suspend fun createLocation(location : Location)
 
+    @Query("UPDATE location SET city = :new_city WHERE user_id = :userId AND city like '%'||:previous_city||'%'")
+    @Throws(SQLiteException::class)
+    suspend fun updateLocation(userId: Int, previous_city: String, new_city: String)
+
+    @Query("DELETE FROM location WHERE user_id = :userId AND city like '%'||:city||'%'")
+    @Throws(SQLiteException::class)
+    suspend fun deleteLocation(userId: Int, city: String)
+
     @Query("SELECT * FROM location WHERE user_id = :userId")
     @Throws(SQLiteException::class)
     fun getLocationByUser(userId : Int) : LiveData<List<Location>>

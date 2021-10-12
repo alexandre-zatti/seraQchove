@@ -10,6 +10,14 @@ class LocationRepository(private val locationDao: LocationDao) {
         locationDao.createLocation(location)
     }
 
+    suspend fun updateLocation(userId: Int, previous_city: String, new_city: String){
+        locationDao.updateLocation(userId, previous_city, new_city)
+    }
+
+    suspend fun deleteLocation(userId: Int, city: String){
+        locationDao.deleteLocation(userId, city)
+    }
+
     fun getLocationByUser(userId: Int): LiveData<List<Location>> {
         return locationDao.getLocationByUser(userId)
     }
