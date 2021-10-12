@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Daniel/Desktop/SeraQchove/seraQchove/app/src/main/res/layout/fragment_locations.xml" value="0.26992753623188404" />
+        <entry key="..\:/Users/Daniel/Desktop/SeraQchove/seraQchove/app/src/main/res/layout/fragment_login.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/drawable/add_location_icon.xml" value="0.40520833333333334" />
         <entry key="app/src/main/res/drawable/logout_menu.xml" value="0.40520833333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />

@@ -21,6 +21,7 @@
         android:layout_marginBottom="20dp"
         android:clickable="true"
         android:src="@drawable/add_location_icon"
+        android:textAlignment="center"
         />
 
 </RelativeLayout>
