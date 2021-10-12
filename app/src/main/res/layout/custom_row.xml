@@ -12,7 +12,7 @@
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
-        android:text="teste"/>
+        android:text="teste" />
 
     <ImageView
         android:id="@+id/icon_img"
@@ -20,15 +20,14 @@
         android:layout_height="50dp"
         android:layout_below="@id/temperatura"
         android:layout_toLeftOf="@id/status"
-        android:scaleType="fitCenter"
-        />
+        android:scaleType="fitCenter" />
 
     <TextView
         android:id="@+id/cidade"
         android:layout_width="match_parent"
         android:layout_height="26.6dp"
         android:layout_toRightOf="@+id/temperatura"
-        android:text="teste"/>
+        android:text="teste" />
 
     <TextView
         android:id="@+id/status"
