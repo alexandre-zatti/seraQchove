@@ -1,11 +1,25 @@
 <resources>
+    <!-- MISC -->
     <string name="app_name">SeraQchove</string>
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
     <string name="entrar">ENTRAR</string>
+    <string name="registro">Registrar</string>
+
+    <!-- HINTS -->
     <string name="user_hint">Digite seu usuário&#8230;</string>
     <string name="passw_hint">Digite sua senha&#8230;</string>
+    <string name="passw_repeat_hint">Digite sua senha novamente&#8230;</string>
+
+    <!-- LOGIN SCREEN -->
     <string name="nao_cadastrado">Ainda não possui uma conta?</string>
     <string name="cadastrese"><u>Cadastre-se</u></string>
+
+    <!-- REGISTER SCREEN -->
+    <string name="repetir_senha">Repita sua senha</string>
+    <string name="cadastro">Registro</string>
+
+    <!-- HOME SCREEN -->
     <string-array name="countries" />
+
 </resources>

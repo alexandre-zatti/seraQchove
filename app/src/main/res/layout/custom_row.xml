@@ -1,45 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="140dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/card_background"
     android:id="@+id/location_row">
-
-    <TextView
-        android:id="@+id/temperatura"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:text="teste" />
 
     <ImageView
         android:id="@+id/icon_img"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/temperatura"
-        android:layout_toLeftOf="@id/status"
-        android:scaleType="fitCenter" />
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/temperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon_img"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="-15dp"
+
+        android:text="Temp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        />
 
     <TextView
         android:id="@+id/cidade"
-        android:layout_width="match_parent"
-        android:layout_height="26.6dp"
-        android:layout_toRightOf="@+id/temperatura"
-        android:text="teste" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        android:text="Sao Paulo, Brazil"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+         />
 
     <TextView
         android:id="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_below="@id/cidade"
-        android:layout_toRightOf="@+id/temperatura"
-        android:text="teste" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cidade"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+
+        android:text="Partly Cloud"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        />
 
     <TextView
         android:id="@+id/data_hora"
-        android:layout_width="match_parent"
-        android:layout_height="26.6dp"
-        android:layout_below="@id/status"
-        android:layout_toRightOf="@+id/temperatura"
-        android:text="teste" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+
+        android:text="2021-10-13 15:03"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>
