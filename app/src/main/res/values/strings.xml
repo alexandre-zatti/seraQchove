@@ -6,10 +6,17 @@
     <string name="entrar">ENTRAR</string>
     <string name="registro">Registrar</string>
 
+    <!-- LOCALS -->
+    <string name="locals">Locais</string>
+    <string name="add_locals">Digite o local que deseja adicionar.</string>
+    <string name="local_label">Local</string>
+    <string name="adicionar">ADICIONAR</string>
+
     <!-- HINTS -->
     <string name="user_hint">Digite seu usuário&#8230;</string>
     <string name="passw_hint">Digite sua senha&#8230;</string>
     <string name="passw_repeat_hint">Digite sua senha novamente&#8230;</string>
+    <string name="locals_hint">Digite uma cidade&#8230;</string>
 
     <!-- LOGIN SCREEN -->
     <string name="nao_cadastrado">Ainda não possui uma conta?</string>
