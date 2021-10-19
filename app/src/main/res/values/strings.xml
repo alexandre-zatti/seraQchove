@@ -9,8 +9,11 @@
     <!-- LOCALS -->
     <string name="locals">Locais</string>
     <string name="add_locals">Digite o local que deseja adicionar.</string>
+    <string name="editLocals">Digite o novo local.</string>
     <string name="local_label">Local</string>
     <string name="adicionar">ADICIONAR</string>
+    <string name="confirmar">CONFIRMAR</string>
+    <string name="editarLocal">Editar</string>
 
     <!-- HINTS -->
     <string name="user_hint">Digite seu usuário&#8230;</string>

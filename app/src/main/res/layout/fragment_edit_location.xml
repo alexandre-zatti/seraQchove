@@ -3,23 +3,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".fragments.EditLocationFragment">
 
-    <AutoCompleteTextView
-        android:id="@+id/city_edit_field"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:hint="Digite uma cidade"
-        android:layout_centerInParent="true"
+    <ImageView
+        android:id="@+id/edit_localPattern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/locals_pattern"
+        android:layout_alignParentBottom="true"
         />
 
-    <Button
-        android:id="@+id/edit_city_btn"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/city_edit_field"
-        android:layout_centerInParent="true"
+    <ImageView
+        android:id="@+id/localsIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Editar"/>
+        android:layout_marginStart="40dp"
+        android:src="@drawable/edit_locals_icon"
+        />
+
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/text_locals"
+        android:layout_toEndOf="@id/localsIcon"
+        android:layout_marginTop="60dp"
+        android:text="@string/editarLocal"
+        android:layout_marginStart="10dp"
+
+        android:textSize="40sp"
+        android:fontFamily="@font/montserrat_bold"
+        />
+
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/text_locals_add"
+        android:layout_below="@id/localsIcon"
+        android:text="@string/editLocals"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+
+        android:textSize="17sp"
+        android:fontFamily="@font/montserrat_medium"
+        />
+
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/text_label_local"
+        android:layout_marginStart="40dp"
+        android:layout_below="@id/text_locals_add"
+        android:paddingBottom="4dp"
+        android:text="@string/local_label"
+        android:layout_marginTop="30dp"
+
+
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        />
+
+    <AutoCompleteTextView
+        style="@style/EditText"
+        android:id="@+id/city_edit_field"
+        android:hint="@string/locals_hint"
+        android:layout_below="@+id/text_label_local"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/Button"
+        android:id="@+id/edit_city_btn"
+        android:layout_below="@+id/city_edit_field"
+        android:layout_marginTop="40dp"
+        android:text="@string/confirmar"
+        />
+
+
 
 </RelativeLayout>
