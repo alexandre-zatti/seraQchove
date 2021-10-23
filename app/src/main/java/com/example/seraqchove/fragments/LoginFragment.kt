@@ -66,16 +66,15 @@ class LoginFragment : Fragment() {
 
         if(validateInput(username,password)){
             try {
-                instanceUserViewModel.getUserByUsername(username).observe(viewLifecycleOwner, Observer { users->
-                    if(users.isNotEmpty() && validatePassword(password,users[0].password)){
-                        instanceUserViewModel.updateUserLoggedStatus(users[0].id, true)
-                        val action = LoginFragmentDirections.actionLoginFragmentToLocationsFragment(users[0])
-                        (requireActivity() as AppCompatActivity).supportActionBar?.show()
-                        findNavController().navigate(action)
-                    }else{
-                        Toast.makeText(requireContext(), "Usuario ou Senha incorretos!", Toast.LENGTH_LONG).show()
-                    }
-                })
+                val users = instanceUserViewModel.getUserByUsername(username)
+                if(users.isNotEmpty() && validatePassword(password,users[0].password)){
+                    instanceUserViewModel.updateUserLoggedStatus(users[0].id, true)
+                    val action = LoginFragmentDirections.actionLoginFragmentToLocationsFragment(users[0])
+                    (requireActivity() as AppCompatActivity).supportActionBar?.show()
+                    findNavController().navigate(action)
+                }else{
+                    Toast.makeText(requireContext(), "Usuario ou Senha incorretos!", Toast.LENGTH_LONG).show()
+                }
             }catch (e: SQLiteException){
                 e.printStackTrace()
             }

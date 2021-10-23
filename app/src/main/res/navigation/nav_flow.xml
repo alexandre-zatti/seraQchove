@@ -47,7 +47,8 @@
     <fragment
         android:id="@+id/createLocationFragment"
         android:name="com.example.seraqchove.fragments.CreateLocationFragment"
-        android:label="Adicionar Local">
+        android:label="Adicionar Local"
+        tools:layout="@layout/fragment_create_location">
         <action
             android:id="@+id/action_createLocationFragment_to_locationsFragment"
             app:destination="@id/locationsFragment" />

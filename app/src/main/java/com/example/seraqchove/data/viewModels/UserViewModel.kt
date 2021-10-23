@@ -9,6 +9,7 @@ import com.example.seraqchove.data.entities.User
 import com.example.seraqchove.data.repositories.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class UserViewModel(application: Application): AndroidViewModel(application) {
 
@@ -19,8 +20,8 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         repository = UserRepository(userDao)
     }
 
-    fun getUserByUsername(username: String): LiveData<List<User>> {
-        return repository.getUserByUsername(username)
+    fun getUserByUsername(username: String): List<User> = runBlocking {
+        return@runBlocking repository.getUserByUsername(username)
     }
 
     fun getLoggedUser(): LiveData<List<User>> {
@@ -33,9 +34,7 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun updateUserLoggedStatus(userId: Int, status: Boolean){
-        viewModelScope.launch(Dispatchers.IO){
-            repository.updateUserLoggedStatus(userId,status)
-        }
+    fun updateUserLoggedStatus(userId: Int, status: Boolean) = runBlocking{
+        repository.updateUserLoggedStatus(userId,status)
     }
 }

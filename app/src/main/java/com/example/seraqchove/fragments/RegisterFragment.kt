@@ -4,12 +4,14 @@ import android.database.sqlite.SQLiteException
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Base64
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.seraqchove.R
@@ -27,10 +29,7 @@ import javax.crypto.spec.SecretKeySpec
 class RegisterFragment : Fragment() {
     private lateinit var instanceUserViewModel: UserViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_register, container, false)
 
         instanceUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -44,25 +43,40 @@ class RegisterFragment : Fragment() {
         return view
     }
 
+    /**
+     *
+     * */
     private fun createUser() {
         val username = register_username.text.toString()
         val password = register_passw.text.toString()
         val repeatPassword = register_passw_repeat.text.toString()
 
         if(validatePassword(password,repeatPassword) && validateInput(username,password,repeatPassword)){
-            try{
-                val passwordHash = encrypt(password)
-                val user = User(0,username,passwordHash,false)
-                instanceUserViewModel.createUser(user)
-                Toast.makeText(requireContext(), "Usuario criado com sucesso!", Toast.LENGTH_LONG).show()
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-            }catch (e: SQLiteException){
-                e.printStackTrace()
+            if(validateUser(username)){
+                try{
+                    val passwordHash = encrypt(password)
+                    val user = User(0,username,passwordHash,false)
+                    instanceUserViewModel.createUser(user)
+                    Toast.makeText(requireContext(), "Usuario criado com sucesso!", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                }catch (e: SQLiteException){
+                    e.printStackTrace()
+                }
+            }else{
+                Toast.makeText(requireContext(), "Este usuario ja existe!", Toast.LENGTH_LONG).show()
             }
-
         }else{
             Toast.makeText(requireContext(), "Preencha todos os campos corretamente!", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun validateUser(username: String) : Boolean{
+        val foundUser = instanceUserViewModel.getUserByUsername(username)
+
+        if(!foundUser.isNullOrEmpty()){
+            return false
+        }
+        return true
     }
 
     private fun validatePassword(password: String, repeatPassword: String): Boolean{

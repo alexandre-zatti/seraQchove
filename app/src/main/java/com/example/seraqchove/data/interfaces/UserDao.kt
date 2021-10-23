@@ -17,7 +17,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE username = :username")
     @Throws(SQLiteException::class)
-    fun getUserByUsername(username: String) : LiveData<List<User>>
+    suspend fun getUserByUsername(username: String) : List<User>
 
     @Query("SELECT * FROM user WHERE loggedIn = 1")
     @Throws(SQLiteException::class)
