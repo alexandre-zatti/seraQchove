@@ -43,9 +43,6 @@ class RegisterFragment : Fragment() {
         return view
     }
 
-    /**
-     *
-     * */
     private fun createUser() {
         val username = register_username.text.toString()
         val password = register_passw.text.toString()
